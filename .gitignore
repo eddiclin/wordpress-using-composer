@@ -1,0 +1,10 @@
+/public/wp
+/vendor
+composer.lock
+local-config.php
+production-config.php
+
+# IDE files
+/nbproject
+
+.DS_Store
