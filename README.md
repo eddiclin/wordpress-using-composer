@@ -7,6 +7,9 @@ wordpress-using-composer
 以下以Composer为例，也可以用Git Submodules的方式实现。
 
 ## 调整WordPress结构
+结构图如下：
+![directory structure](https://cloud.githubusercontent.com/assets/2800700/16399077/f5658ac6-3d01-11e6-8c05-5ba5fd898b89.png)
+
 * 调整 `index.php` 位置
 
 我们将会把WordPress安装在 `public/wp` 子目录，所以需要调整 `index.php`，并加上autoload
