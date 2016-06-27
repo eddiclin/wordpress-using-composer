@@ -8,6 +8,7 @@ wordpress-using-composer
 
 ## 调整WordPress结构
 * 调整 `index.php` 位置
+
 我们将会把WordPress安装在 `public/wp` 子目录，所以需要调整 `index.php`，并加上autoload
 
 ```php
@@ -17,9 +18,11 @@ require('./wp/wp-blog-header.php');
 ```
 
 * 把wp-content移动到WordPress安装目录外边
+
 使用WordPress开发时，通常只需要改动 `wp-content`，所以把wp-content移动到public目录下，并调整 `WP_CONTENT_DIR` 和 `WP_CONTENT_URL` 的值，见 `public/wp-config.php`
 
 * 把配置文件wp-config.php移动到 `public` 目录下
+
 `wp-config.php` 有时也会改动，通过源码可知，WordPress会优先加载上一层目录的 `wp-config.php`，所以可以把wp-config.php移动至public目录下，更新public/wp时，无须担心被覆盖。同时，引进了 `local` 和 `production` 环境的不同配置，详见 `public/wp-config.php`
 
 ## 使用Composer安装WordPress
@@ -100,5 +103,7 @@ server {
 
 ## 参考资料
 https://deliciousbrains.com/install-wordpress-subdirectory-composer-git-submodule/
+
 https://roots.io/using-composer-with-wordpress/
+
 https://github.com/johnpbloch/wordpress
