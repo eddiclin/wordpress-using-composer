@@ -3,7 +3,8 @@ wordpress-using-composer
 
 ## 把WordPress作为一个依赖
 在项目中，把 [WordPress](https://wordpress.org/) 作为一个依赖对待，能保持Git仓库的整洁和模块化。无须维护、提交WordPress到Git仓库，以及能够更加方便地升级。
-可以通过WP-CLI或者 [Composer](https://getcomposer.org/) 将WordPress安装在子目录里。以下以Composer为例，也可以用Git Submodules的方式实现。
+可以通过WP-CLI或者 [Composer](https://getcomposer.org/) 将WordPress安装在子目录里。
+以下以Composer为例，也可以用Git Submodules的方式实现。
 
 ## 调整WordPress结构
 * 调整 `index.php` 位置
