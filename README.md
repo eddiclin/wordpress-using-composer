@@ -12,13 +12,7 @@ wordpress-using-composer
 
 * 调整 `index.php` 位置
 
-我们将会把WordPress安装在 `public/wp` 子目录，所以需要调整 `index.php`，并加上autoload
-
-```php
-require __DIR__ . '/../vendor/autoload.php';
-define('WP_USE_THEMES', true);
-require('./wp/wp-blog-header.php');
-```
+我们将会把WordPress安装在 `public/wp` 子目录，所以需要调整 `index.php` 的位置为 `public/index.php`
 
 * 把wp-content移动到WordPress安装目录外边
 
@@ -26,7 +20,11 @@ require('./wp/wp-blog-header.php');
 
 * 把配置文件wp-config.php移动到 `public` 目录下
 
-`wp-config.php` 有时也会改动，通过源码可知，WordPress会优先加载上一层目录的 `wp-config.php`，所以可以把wp-config.php移动至public目录下，更新public/wp时，无须担心被覆盖。同时，引进了 `local` 和 `production` 环境的不同配置，详见 `public/wp-config.php`
+`wp-config.php` 有时也会改动，通过WordPress源码可知，WordPress会优先加载上一层目录的 `wp-config.php`，所以可以把wp-config.php移动至public目录下，更新public/wp时，无须担心被覆盖。
+同时，引进了 `local` 和 `production` 环境的不同配置，详见 `public/wp-config.php`，并在其中注册 Compoer Auto Loader：
+```php
+require __DIR__ . '/../vendor/autoload.php';
+```
 
 ## 使用Composer安装WordPress
 在根目录下，创建 composer.json，然后 composer install，如：
