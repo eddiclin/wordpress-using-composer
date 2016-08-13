@@ -68,7 +68,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 此时，需配置好 `public/wp-content/.gitignore` 进行管理，通常Git仓库不需要保存第三方的代码，但需要保存自制的插件、主题代码，可参考 https://deliciousbrains.com/using-composer-manage-wordpress-themes-plugins/
 
-## nginx的配置
+## Nginx的配置
 ```nginx
 server {
     listen   80;
@@ -97,12 +97,23 @@ server {
         expires    12h;
     }
 }
-
 ```
 
 >注：若nginx中无rewrite配置 `rewrite ^/wp-(.*) /wp/wp-$1;`，则需对 `siteurl` 和 `home` 的链接做以下配置，访问后台时，路径需加上wp
 > * siteurl: http://example.com/wp (with /wp)
 > * home: http://example.com (without /wp)
+
+## Apache的配置
+使用虚拟主机作为服务器时，根目录通常会被限制为`/htdocs`，若想把项目存放在子目录中，如`/htdocs/project`，并且希望能够通过 http://example.com 访问，`.htaccess` 可做如下配置：
+```apache
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    
+    RewriteRule ^wp-content/(.*) project/public/wp-content/$1 [L]
+    RewriteRule ^wp-(.*) project/public/wp/wp-$1 [L]
+    RewriteRule . project/public/index.php [L]
+</IfModule>
+```
 
 ## 参考资料
 https://deliciousbrains.com/install-wordpress-subdirectory-composer-git-submodule/
