@@ -109,11 +109,17 @@ server {
 <IfModule mod_rewrite.c>
     RewriteEngine on
     
-    RewriteRule ^wp-content/(.*) project/public/wp-content/$1 [L]
+    RewriteRule ^wp-content/(.*) project/public/wp-content/$1 [END]
     RewriteRule ^wp-(.*) project/public/wp/wp-$1 [L]
     RewriteRule . project/public/index.php [L]
+    
+    #END在Apache2.3.9之后才支持，若不支持，上述最后一句RewriteRule可替换为
+    #RewriteRule ^(?!project) project/public/index.php [L]
 </IfModule>
 ```
+配置知识参考：
+http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+http://www.jinbuguo.com/apache/menu22/mod/mod_rewrite.html
 
 ## 参考资料
 https://deliciousbrains.com/install-wordpress-subdirectory-composer-git-submodule/
