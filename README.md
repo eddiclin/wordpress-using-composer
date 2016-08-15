@@ -118,6 +118,7 @@ server {
 </IfModule>
 ```
 配置知识参考：
+
 http://httpd.apache.org/docs/current/mod/mod_rewrite.html
 http://www.jinbuguo.com/apache/menu22/mod/mod_rewrite.html
 
