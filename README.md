@@ -110,10 +110,10 @@ server {
     RewriteEngine on
     
     RewriteRule ^wp-content/(.*) project/public/wp-content/$1 [END]
-    RewriteRule ^wp-(.*) project/public/wp/wp-$1 [L]
+    RewriteRule ^wp-(.*) project/public/wp/wp-$1 [END]
     RewriteRule . project/public/index.php [L]
     
-    #END在Apache2.3.9之后才支持，若不支持，上述最后一句RewriteRule可替换为
+    #END在Apache2.3.9之后才支持，若不支持，改`END`为`L`，上述最后一句RewriteRule替换为
     #RewriteRule ^(?!project) project/public/index.php [L]
 </IfModule>
 ```
