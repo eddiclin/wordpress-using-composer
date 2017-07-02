@@ -18,10 +18,10 @@
 /**
  * Load MySQL settings and environment parameters.
  */
-if (file_exists(dirname(__FILE__) . '/../production-config.php')) {
-    include(dirname(__FILE__) . '/../production-config.php');
+if (file_exists(dirname(__FILE__) . '/../config-production.php')) {
+    include(dirname(__FILE__) . '/../config-production.php');
 } else {
-    include(dirname(__FILE__) . '/../local-config.php');
+    include(dirname(__FILE__) . '/../config-local.php');
 }
 
 // Important: Custom wp-content directory

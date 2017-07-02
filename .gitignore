@@ -1,9 +1,10 @@
 /public/wp
 /vendor
-local-config.php
-production-config.php
+config-local.php
+config-production.php
 
 # IDE files
+/.idea
 /nbproject
 
 .DS_Store
