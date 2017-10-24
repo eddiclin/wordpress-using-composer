@@ -18,11 +18,7 @@
 /**
  * Load MySQL settings and environment parameters.
  */
-if (file_exists(dirname(__FILE__) . '/../config-production.php')) {
-    include(dirname(__FILE__) . '/../config-production.php');
-} else {
-    include(dirname(__FILE__) . '/../config-local.php');
-}
+require(dirname(__FILE__) . '/../config.php');
 
 // Important: Custom wp-content directory
 define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');

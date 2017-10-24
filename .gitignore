@@ -1,7 +1,6 @@
 /public/wp
 /vendor
-config-local.php
-config-production.php
+config.php
 
 # IDE files
 /.idea
